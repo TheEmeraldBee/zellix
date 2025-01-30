@@ -42,7 +42,7 @@ def main [module_path, filepath?, session?] {
   let config_path = $env.ZELLIX_PATH + "/zellij-config.kdl"
 
   # Create the zellij session
-  zellij -s $session -l $layout_path -c $config_path
+  zellij -s $session -n $layout_path -c $config_path
 
   # Delete The Session Folder
   rm -r $env.ZELLIX_TMP
