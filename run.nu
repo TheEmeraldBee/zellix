@@ -9,9 +9,9 @@ def setup-files [session] {
   mkdir $path
 }
 
-def main [module_path, filepath?, session?] {
+def main [config_path, filepath?, session?] {
   # Find the path of the zelix command.
-  let path = $env.FILE_PWD
+  let path = $config_path
   $env.ZELLIX_PATH = $path
 
   let session = match $session {
@@ -32,7 +32,7 @@ def main [module_path, filepath?, session?] {
   # Create useful environment variables for users.
   $env.ZELLIX_SESSION = $session
   $env.ZELLIX_TMP = "/tmp/zellix/" + $session
-  $env.ZELLIX_MOD = $module_path
+  $env.ZELLIX_MOD = $env.ZELLIX_PATH + "/plugins"
 
   # Set up the tmp folder for the zellix session.
   setup-files $session
