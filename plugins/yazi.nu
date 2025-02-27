@@ -7,9 +7,10 @@
 export def init-yazi [] {
 }
 
-def main [current_path] {
-  mut current_path = $current_path;
-  if $current_path == "[scratch]" {
+def main [current_buffer] {
+  print $current_buffer
+  mut current_path = $current_buffer | str join;
+  if $current_path == "scratch" {
     $current_path = "./"
   }
 
