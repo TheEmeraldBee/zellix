@@ -8,6 +8,10 @@ export def init-yazi [] {
 }
 
 def main [current_path] {
+  mut current_path = $current_path;
+  if $current_path == "[scratch]" {
+    $current_path = "./"
+  }
 
   # Open yazi at the current path, and print the selected files to stdout.
   let paths = yazi --chooser-file=/dev/stdout $current_path
