@@ -1,9 +1,18 @@
 layout {
+	default_tab_template {
+		children
+		pane size=1 borderless=true {
+			plugin location="zellij:compact-bar"
+		}
+	}
 	tab focus=true {
 		pane focus=true {
 			name "editor"
 			command "nu"
 			args "-c" "nu ($env.ZELLIX_PATH + \"/helix.nu\")"
+		}
+		pane size=1 borderless=true {
+			plugin location="zellij:compact-bar"
 		}
 	}
 }
